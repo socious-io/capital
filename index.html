@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socious Capital | Catalyzing Growth in Emerging Markets</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS VARIABLES (Brand Colors) --- */
+        :root {
+            --primary-navy: #0F172A;   /* Deep Blue for Finance/Trust */
+            --accent-green: #10B981;   /* Emerald for Impact/Growth */
+            --light-bg: #F8FAFC;       /* Off-white for sections */
+            --text-dark: #1E293B;      /* Main text */
+            --text-light: #64748B;     /* Subtext */
+            --white: #ffffff;
+            --max-width: 1200px;
+        }
+
+        /* --- GLOBAL RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        /* Decorative underline for H2 */
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-green);
+            margin-top: 10px;
+        }
+
+        p { margin-bottom: 1rem; color: var(--text-dark); }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            border: 1px solid var(--accent-green);
+        }
+
+        .btn:hover {
+            background-color: #059669; /* Darker green */
+            opacity: 1;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .philosophy-box {
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-navy);
+        }
+
+        /* --- STRATEGY SECTION --- */
+        #strategy {
+            background-color: var(--primary-navy);
+            color: var(--white);
+        }
+
+        #strategy h2 {
+            color: var(--white);
+        }
+
+        #strategy p {
+            color: #cbd5e1;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .strategy-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .strategy-card h3 {
+            color: var(--accent-green);
+            margin-bottom: 15px;
+        }
+
+        /* --- PORTFOLIO SECTION --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .portfolio-card {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Image styling for cards */
+        .card-image-container {
+            width: 100%;
+            height: 220px;
+            background-color: #f1f5f9;
+        }
+
+        .card-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers area without distortion */
+            object-position: center;
+        }
+
+        .p-header {
+            background: var(--light-bg);
+            padding: 20px 30px;
+            border-bottom: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .p-header h3 { margin-bottom: 5px; color: var(--primary-navy); }
+        .p-location { font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+
+        .p-body { padding: 30px; flex-grow: 1; }
+
+        .theme-tag {
+            display: inline-block;
+            background: #d1fae5;
+            color: #065f46;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .stat-highlight {
+            font-weight: 700;
+            color: var(--primary-navy);
+        }
+
+        /* --- IMPACT & GOVERNANCE --- */
+        #impact {
+            background-color: var(--light-bg);
+        }
+
+        .impact-content {
+            max-width: 800px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-navy);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .contact-btn {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            padding: 10px 30px;
+            color: var(--white);
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--white);
+            color: var(--primary-navy);
+        }
+
+        .disclaimer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #64748B;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Socious Capital</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#strategy">Strategy</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#contact" class="btn" style="padding: 8px 16px;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Catalyzing Growth in Emerging Markets through Social Finance.</h1>
+            <p>We are an investment management firm dedicated to generating substantial impact and financial returns by addressing unmet needs in the world’s fastest-growing economies.</p>
+            <a href="#portfolio" class="btn">View Our Pipeline</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <h2>Who We Are</h2>
+                    <p>Socious Capital is an investment management company focused on early-stage opportunities in challenging geographies. We bridge the gap between institutional capital and high-impact ventures in regions eligible for Official Development Assistance (ODA).</p>
+                </div>
+                <div class="philosophy-box">
+                    <h3>Our Philosophy</h3>
+                    <p>We believe that the most significant returns come from solving the most urgent problems. Our strategy focuses on <strong>"Inclusive and Sustainable Communities"</strong> and <strong>"Decent Work"</strong>.</p>
+                    <p style="margin-bottom:0;">By leveraging deep local networks and rigorous impact measurement, we identify founders—often overlooked by traditional capital—who are building the infrastructure for the next generation of emerging market growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy Section -->
+    <section id="strategy" class="section-padding">
+        <div class="container">
+            <h2>Our Strategy: The Socious Fund</h2>
+            <p style="max-width: 700px;">This vehicle is designed to meet the rigorous standards of global impact investors.</p>
+
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h3>100% Emerging Market Focus</h3>
+                    <p>Our assets are deployed exclusively in ODA-eligible countries, targeting high-growth regions in Africa and South Asia.</p>
+                </div>
+                <div class="strategy-card">
+                    <h3>Social Finance First</h3>
+                    <p>At least 75% of our portfolio contributes directly to solving social inequalities, providing adequate living standards, or creating decent work.</p>
+                </div>
+                <div class="strategy-card">
+                    <h3>Rigorous Measurement</h3>
+                    <p>We utilize best-in-class frameworks, including the Theory of Change and IRIS+, to monitor ESG risks and quantify positive outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding">
+        <div class="container">
+            <h2>Portfolio & Pipeline</h2>
+            <p>We have deployed capital into ventures that demonstrate our ability to access unique deal flow and execute on our investment thesis.</p>
+
+            <div class="portfolio-grid">
+
+                <!-- Investment 1 -->
+                <div class="portfolio-card">
+                    <!-- IMPORTANT: Ensure your image is named 'senzo.jpg' and is in the same folder -->
+                    <div class="card-image-container">
+                        <img src="senzo.jpg" alt="Senzo Capital Team in Africa">
+                    </div>
+                    <div class="p-header">
+                        <div class="p-location">Africa Focus</div>
+                        <h3>Senzo Capital</h3>
+                    </div>
+                    <div class="p-body">
+                        <span class="theme-tag">Gender Equality & Tech Infrastructure</span>
+                        <p>An Africa-focused VC fund addressing the funding disparity facing female founders. Senzo targets a portfolio where 50% is allocated to the "Women Category" (founders, management, or wellness).</p>
+                        <p><strong>Impact:</strong> Empowering women and advancing financial inclusion through tech infrastructure.</p>
+                        <p><strong>Traction:</strong> Capitalizing on exit opportunities, M&A, and unicorn activity in the African tech ecosystem.</p>
+                    </div>
+                </div>
+
+                <!-- Investment 2 -->
+                <div class="portfolio-card">
+                    <!-- IMPORTANT: Ensure your image is named 'pedal.jpg' and is in the same folder -->
+                    <div class="card-image-container">
+                        <img src="pedal.png" alt="Pedal Team in Bangladesh">
+                    </div>
+                    <div class="p-header">
+                        <div class="p-location">Bangladesh</div>
+                        <h3>Pedal</h3>
+                    </div>
+                    <div class="p-body">
+                        <span class="theme-tag">MSME Growth & Financial Inclusion</span>
+                        <p>A holistic support system for the 13 million MSMEs that form the backbone of Bangladesh's economy. Combines flexible revenue-based financing with a mobile ERP app.</p>
+                        <p><strong>Impact:</strong> Job creation and poverty reduction. <span class="stat-highlight">0% default rate</span> on $214k+ disbursed.</p>
+                        <p><strong>Goal:</strong> Contribute to a 2% increase in Bangladesh's GDP by 2035.</p>
+                    </div>
+                </div>
+
+                <!-- Investment 3 -->
+                <div class="portfolio-card">
+                    <!-- IMPORTANT: Ensure your image is named 'pathahead.jpg' and is in the same folder -->
+                    <div class="card-image-container">
+                        <img src="pathahead.jpg" alt="Path Ahead Project in Kenya">
+                    </div>
+                    <div class="p-header">
+                        <div class="p-location">Sustainable Infrastructure</div>
+                        <h3>Path Ahead</h3>
+                    </div>
+                    <div class="p-body">
+                        <span class="theme-tag">Climate Action & RisingSand Project</span>
+                        <p>Addresses the shortage of construction sand using "RisingSand"—a proprietary aggregate made from desert sand. Extends road lifespans by 2–3 times.</p>
+                        <p><strong>Impact:</strong> Reduces lifecycle costs and eliminates environmental damage from river dredging.</p>
+                        <p><strong>Origin:</strong> A spin-off project utilizing technology developed at Honda R&D.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact & Governance -->
+    <section id="impact" class="section-padding">
+        <div class="container">
+            <h2>Impact & Governance</h2>
+            <div class="impact-content">
+                <p><strong>Commitment to Standards</strong></p>
+                <p>Socious Capital undertakes to uphold best reporting and market practices. We implement a comprehensive exclusion policy in line with international development finance standards and maintain an integrated process to identify, manage, and monitor environmental, social, and governance (ESG) impacts on 100% of our investments.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container footer-content">
+            <h2>Get in Touch</h2>
+            <p>Interested in learning more about the Socious Fund?</p>
+
+            <a href="mailto:capital@socious.io" class="contact-btn">capital@socious.io</a>
+
+            <div style="margin-top: 20px;">
+                <p>Location: Tokyo, Japan</p>
+                <a href="https://linkedin.com/company/socious-capital"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="text-decoration: underline; color: #cbd5e1;">
+                  LinkedIn Page
+                </a>
+            </div>
+
+            <p class="disclaimer">
+                &copy; 2026 Socious Capital.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
